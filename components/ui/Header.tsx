@@ -10,7 +10,7 @@ const Header = () => {
     <header className="sticky top-0 header">
         <div className="container header-wrapper">
            <Link href="/">
-           <Image src="/assets/icons/fintalesgo.png" alt="FinTales Logo" width={320} height={120} className="h-15 w-auto cursor-pointer"/>
+           <Image src="/assets/icons/fintalesgo.png" alt="FinTales Logo" width={320} height={320} className="h-15 w-auto cursor-pointer"/>
            </Link>
            <nav className="hidden sm:block">
             <NavItems />

@@ -6,16 +6,16 @@ export const NAV_ITEMS = [
 
 // Sign-up form select options
 export const INVESTMENT_GOALS = [
-    { value: 'Growth', label: 'Growth' },
-    { value: 'Income', label: 'Income' },
-    { value: 'Balanced', label: 'Balanced' },
-    { value: 'Conservative', label: 'Conservative' },
+    { value: 'Growth', label: 'Croissance' },
+    { value: 'Income', label: 'Revenu' },
+    { value: 'Balanced', label: 'Équilibré' },
+    { value: 'Conservative', label: 'Prudent' },
 ];
 
 export const RISK_TOLERANCE_OPTIONS = [
-    { value: 'Low', label: 'Low' },
-    { value: 'Medium', label: 'Medium' },
-    { value: 'High', label: 'High' },
+    { value: 'Low', label: 'Basse' },
+    { value: 'Medium', label: 'Moyenne' },
+    { value: 'High', label: 'Haute' },
 ];
 
 export const PREFERRED_INDUSTRIES = [
