@@ -27,17 +27,31 @@ const SignIn = () => {
 
     const onSubmit = async (data: SignInFormData) => {
         try {
-            const result = await signInWithEmail(data);
-            if(result.success) router.push('/');
-
-        } catch (error) {
-            console.error(error);
-            toast.error('Échec de l\'authentification', {
-              description: error instanceof Error ? error.message : 'Une erreur inattendue s\'est produite'
-            });
+          const result = await signInWithEmail(data);
           
-    }
-}
+          if (result.success) {
+            router.push('/');
+            return;
+          }
+          
+          // Gestion du cas où l'authentification échoue sans exception
+          toast.error("Échec de l'authentification", {
+            description: 
+              result.message ?? 
+              "Une erreur inattendue s'est produite",
+          });
+          
+        } catch (error) {
+          console.error(error);
+          toast.error("Échec de l'authentification", {
+            description: 
+              error instanceof Error 
+                ? error.message 
+                : "Une erreur inattendue s'est produite",
+          });
+        }
+      };
+      
 
     return (
         <>

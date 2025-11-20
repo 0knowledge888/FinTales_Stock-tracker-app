@@ -31,19 +31,34 @@ const SignUp = () => {
             },
             mode: 'onBlur',
         }, );
+        
         const onSubmit = async (data: SignUpFormData) => {
             try {
-                const result = await signUpWithEmail(data);
-                if(result.success) router.push('/');
-
-            } catch (error) {
-                console.error(error);
-                toast.error('Échec de l\'inscription', {
-                  description: error instanceof Error ? error.message : 'Une erreur inattendue s\'est produite'
-                });
+              const result = await signUpWithEmail(data);
               
-        }
-    }
+              if (result.success) {
+                router.push('/');
+                return;
+              }
+              
+              // Gestion du cas où l'inscription échoue sans exception
+              toast.error("Échec de l'inscription", {
+                description: 
+                  result.message ?? 
+                  "Une erreur inattendue s'est produite",
+              });
+              
+            } catch (error) {
+              console.error(error);
+              toast.error("Échec de l'inscription", {
+                description: 
+                  error instanceof Error 
+                    ? error.message 
+                    : "Une erreur inattendue s'est produite",
+              });
+            }
+          };
+          
     return (
     <> 
     <h1 className="form-title">S'inscrire et paramétrer son profil</h1>
