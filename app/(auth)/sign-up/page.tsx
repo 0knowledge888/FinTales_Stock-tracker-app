@@ -1,13 +1,18 @@
 'use client';
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import {useForm} from "react-hook-form";
 import InputField from "@/components/ui/forms/InputField";
 import SelectField from "@/components/ui/forms/SelectField";
 import { INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS } from "@/lib/constants";
 import {CountrySelectField} from "@/components/ui/forms/CountrySelectField";
 import FooterLink from "@/components/ui/forms/FooterLink";
+import { useRouter } from "next/navigation";
+import { signUpWithEmail } from "@/lib/actions/auth.actions";
+import { toast } from "sonner";
 
 const SignUp = () => {
+    const router = useRouter();
  const {
           register,
           handleSubmit,
@@ -26,14 +31,34 @@ const SignUp = () => {
             },
             mode: 'onBlur',
         }, );
+        
         const onSubmit = async (data: SignUpFormData) => {
             try {
-                console.log(data);
-
+              const result = await signUpWithEmail(data);
+              
+              if (result.success) {
+                router.push('/');
+                return;
+              }
+              
+              // Gestion du cas où l'inscription échoue sans exception
+              toast.error("Échec de l'inscription", {
+                description: 
+                  result.message ?? 
+                  "Une erreur inattendue s'est produite",
+              });
+              
             } catch (error) {
-                console.error(error);
-        }
-    }
+              console.error(error);
+              toast.error("Échec de l'inscription", {
+                description: 
+                  error instanceof Error 
+                    ? error.message 
+                    : "Une erreur inattendue s'est produite",
+              });
+            }
+          };
+          
     return (
     <> 
     <h1 className="form-title">S'inscrire et paramétrer son profil</h1>

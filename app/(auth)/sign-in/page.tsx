@@ -4,8 +4,14 @@ import { useForm } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
 import InputField from '@/components/ui/forms/InputField';
 import FooterLink from '@/components/ui/forms/FooterLink';
+import { signInWithEmail } from '@/lib/actions/auth.actions';
+import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
+
 
 const SignIn = () => {
+
+    const router = useRouter();
     
     const {
         register,
@@ -21,13 +27,31 @@ const SignIn = () => {
 
     const onSubmit = async (data: SignInFormData) => {
         try {
-            
-            console.log('Sign in data:', data);
-        } catch (e) {
-            console.error(e);
+          const result = await signInWithEmail(data);
           
+          if (result.success) {
+            router.push('/');
+            return;
+          }
+          
+          // Gestion du cas où l'authentification échoue sans exception
+          toast.error("Échec de l'authentification", {
+            description: 
+              result.message ?? 
+              "Une erreur inattendue s'est produite",
+          });
+          
+        } catch (error) {
+          console.error(error);
+          toast.error("Échec de l'authentification", {
+            description: 
+              error instanceof Error 
+                ? error.message 
+                : "Une erreur inattendue s'est produite",
+          });
         }
-    }
+      };
+      
 
     return (
         <>
