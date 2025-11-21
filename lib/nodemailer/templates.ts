@@ -95,7 +95,7 @@ export const WELCOME_EMAIL_TEMPLATE = `<!DOCTYPE html>
                     
                     <tr>
                         <td align="left" class="mobile-header-padding" style="padding: 40px 40px 20px 40px;">
-                            <img src="https://ik.imagekit.io/a6fkjou7d/logo.png?updatedAt=1756378431634" alt="FinTales Logo" width="150" style="max-width: 100%; height: auto;">
+                            <img src="https://ik.imagekit.io/2el7jk9go/fintalesgo.png" alt="FinTales Logo" width="150" style="max-width: 100%; height: auto;">
                         </td>
                     </tr>
                     
@@ -139,7 +139,7 @@ export const WELCOME_EMAIL_TEMPLATE = `<!DOCTYPE html>
                             </table>
                             
                             <p class="mobile-text dark-text-muted" style="margin: 40px 0 0 0; font-size: 14px; line-height: 1.5; color: #CCDADC !important; text-align: center;">
-                               FinTales HQ, Paris, France<br>
+                               FinTales HQ, 2 Av. du blanchissage, Avignon<br>
                                 <a href="#" style="color: #CCDADC !important; text-decoration: underline;">Se désabonner</a> | 
                                 <a href="https://github.com/0knowledge888/FinTales_Stock-tracker-app" style="color: #CCDADC !important; text-decoration: underline;">Visiter FinTales</a><br>
                                 © 2025 FinTales
@@ -236,7 +236,7 @@ export const NEWS_SUMMARY_EMAIL_TEMPLATE = `<!DOCTYPE html>
                     
                     <tr>
                         <td align="left" class="mobile-header-padding" style="padding: 40px 40px 20px 40px;">
-                            <img src="https://ik.imagekit.io/a6fkjou7d/logo.png?updatedAt=1756378431634" alt="FinTales Logo" width="150" style="max-width: 100%; height: auto;">
+                            <img src="https://ik.imagekit.io/2el7jk9go/fintalesgo.png" alt="FinTales Logo" width="150" style="max-width: 100%; height: auto;">
                         </td>
                     </tr>
                     
@@ -270,7 +270,7 @@ export const NEWS_SUMMARY_EMAIL_TEMPLATE = `<!DOCTYPE html>
                             </table>
                             
                             <p class="mobile-text dark-text-muted" style="margin: 40px 0 0 0; font-size: 14px; line-height: 1.5; color: #CCDADC !important; text-align: center;">
-                                FinTales HQ, Paris, France<br>
+                                FinTales HQ, 2 Av. du blanchissage, Avignon<br>
                                 <a href="#" style="color: #CCDADC !important; text-decoration: underline;">Se désabonner</a> | 
                                 <a href="https://github.com/0knowledge888/FinTales_Stock-tracker-app" style="color: #CCDADC !important; text-decoration: underline;">Visiter FinTales</a><br>
                                 © 2025 FinTales
@@ -367,7 +367,7 @@ export const STOCK_ALERT_EMAIL_TEMPLATE = `<!DOCTYPE html>
                     
                     <tr>
                         <td align="left" class="mobile-header-padding" style="padding: 40px 40px 20px 40px;">
-                            <img src="https://ik.imagekit.io/a6fkjou7d/logo.png?updatedAt=1756378431634" alt="FinTales Logo" width="150" style="max-width: 100%; height: auto;">
+                            <img src="https://ik.imagekit.io/2el7jk9go/fintalesgo.png" alt="FinTales Logo" width="150" style="max-width: 100%; height: auto;">
                         </td>
                     </tr>
                     
@@ -434,7 +434,7 @@ export const STOCK_ALERT_EMAIL_TEMPLATE = `<!DOCTYPE html>
                             </table>
                             
                             <p class="mobile-text dark-text-muted" style="margin: 40px 0 0 0; font-size: 14px; line-height: 1.5; color: #CCDADC !important; text-align: center;">
-                                FinTales HQ, Paris, France<br>
+                                FinTales HQ, 2 Av. du blanchissage, Avignon<br>
                                 <a href="#" style="color: #CCDADC !important; text-decoration: underline;">Gérer les Alertes</a> | 
                                 <a href="https://github.com/0knowledge888/FinTales_Stock-tracker-app" style="color: #CCDADC !important; text-decoration: underline;">Visiter FinTales</a><br>
                                 © 2025 FinTales
@@ -524,7 +524,7 @@ export const VOLUME_ALERT_EMAIL_TEMPLATE = `<!DOCTYPE html>
                     
                     <tr>
                         <td align="left" class="mobile-header-padding" style="padding: 40px 40px 20px 40px;">
-                            <img src="https://ik.imagekit.io/a6fkjou7d/logo.png?updatedAt=1756378431634" alt="FinTales Logo" width="150" style="max-width: 100%; height: auto;">
+                            <img src="https://ik.imagekit.io/2el7jk9go/fintalesgo.png" alt="FinTales Logo" width="150" style="max-width: 100%; height: auto;">
                         </td>
                     </tr>
                     
@@ -566,7 +566,7 @@ export const VOLUME_ALERT_EMAIL_TEMPLATE = `<!DOCTYPE html>
                             </table>
                             
                             <p class="mobile-text dark-text-muted" style="margin: 40px 0 0 0; font-size: 14px; line-height: 1.5; color: #CCDADC !important; text-align: center;">
-                                FinTales HQ, Paris, France<br>
+                                FinTales HQ, 2 Av. du blanchissage, Avignon<br>
                                 <a href="#" style="color: #CCDADC !important; text-decoration: underline;">Gérer les Alertes</a> | 
                                 <a href="https://github.com/0knowledge888/FinTales_Stock-tracker-app" style="color: #CCDADC !important; text-decoration: underline;">Visiter FinTales</a><br>
                                 © 2025 FinTales
@@ -656,7 +656,7 @@ export const INACTIVE_USER_REMINDER_EMAIL_TEMPLATE = `<!DOCTYPE html>
                     
                     <tr>
                         <td align="left" class="mobile-header-padding" style="padding: 40px 40px 20px 40px;">
-                            <img src="https://ik.imagekit.io/a6fkjou7d/logo.png?updatedAt=1756378431634" alt="FinTales Logo" width="150" style="max-width: 100%; height: auto;">
+                            <img src="https://ik.imagekit.io/2el7jk9go/fintalesgo.png" alt="FinTales Logo" width="150" style="max-width: 100%; height: auto;">
                         </td>
                     </tr>
                     
@@ -696,7 +696,7 @@ export const INACTIVE_USER_REMINDER_EMAIL_TEMPLATE = `<!DOCTYPE html>
                             </table>
                             
                             <p class="mobile-text dark-text-muted" style="margin: 40px 0 0 0; font-size: 14px; line-height: 1.5; color: #CCDADC !important; text-align: center;">
-                                FinTales HQ, Paris, France<br>
+                                FinTales HQ, 2 Av. du blanchissage, Avignon<br>
                                 <a href="#" style="color: #CCDADC !important; text-decoration: underline;">Se désabonner</a> | 
                                 <a href="https://github.com/0knowledge888/FinTales_Stock-tracker-app" style="color: #CCDADC !important; text-decoration: underline;">Visiter FinTales</a><br>
                                 © 2025 FinTales
@@ -786,7 +786,7 @@ export const WATCHLIST_UPDATE_EMAIL_TEMPLATE = `<!DOCTYPE html>
                     
                     <tr>
                         <td align="left" class="mobile-header-padding" style="padding: 40px 40px 20px 40px;">
-                            <img src="https://ik.imagekit.io/a6fkjou7d/logo.png?updatedAt=1756378431634" alt="FinTales Logo" width="150" style="max-width: 100%; height: auto;">
+                            <img src="https://ik.imagekit.io/2el7jk9go/fintalesgo.png" alt="FinTales Logo" width="150" style="max-width: 100%; height: auto;">
                         </td>
                     </tr>
                     
@@ -816,7 +816,7 @@ export const WATCHLIST_UPDATE_EMAIL_TEMPLATE = `<!DOCTYPE html>
                             </table>
                             
                             <p class="mobile-text dark-text-muted" style="margin: 40px 0 0 0; font-size: 14px; line-height: 1.5; color: #CCDADC !important; text-align: center;">
-                                FinTales HQ, Paris, France<br>
+                                FinTales HQ, 2 Av. du blanchissage, Avignon<br>
                                 <a href="#" style="color: #CCDADC !important; text-decoration: underline;">Se désabonner</a> | 
                                 <a href="https://github.com/0knowledge888/FinTales_Stock-tracker-app" style="color: #CCDADC !important; text-decoration: underline;">Visiter FinTales</a><br>
                                 © 2025 FinTales
