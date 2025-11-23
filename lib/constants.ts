@@ -89,8 +89,8 @@ export const MARKET_OVERVIEW_WIDGET_CONFIG = {
     },
 
     {
-      title: "Overview",
-      title_raw: "Overview",
+      title: "Cryptos",
+      title_raw: "Cryptos",
       symbols: [
         {
           s: "CRYPTOCAP:TOTAL",
