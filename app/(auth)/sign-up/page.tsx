@@ -10,7 +10,7 @@ import {
   RISK_TOLERANCE_OPTIONS,
 } from "@/lib/constants";
 import { CountrySelectField } from "@/components/ui/forms/CountrySelectField";
-import FooterLink from "@/components/ui/forms/FooterLink";
+import FooterLink from "@/components/forms/FooterLink";
 import { useRouter } from "next/navigation";
 import { signUpWithEmail } from "@/lib/actions/auth.actions";
 import { toast } from "sonner";
