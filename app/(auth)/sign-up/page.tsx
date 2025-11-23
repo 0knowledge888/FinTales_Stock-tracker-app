@@ -2,8 +2,8 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
-import InputField from "@/components/ui/forms/InputField";
-import SelectField from "@/components/ui/forms/SelectField";
+import InputField from "@/components/forms/InputField";
+import SelectField from "@/components/forms/SelectField";
 import {
   INVESTMENT_GOALS,
   PREFERRED_INDUSTRIES,
