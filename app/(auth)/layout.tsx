@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getAuthInstance } from "@/lib/better-auth/auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import CookieConsentBanner from "@/components/CookieConsent";
 
 const Layout = async ({ children }: { children: React.ReactNode }) => {
   const auth = await getAuthInstance();
@@ -63,7 +64,13 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
           />
         </div>
       </section>
+      
     </main>
   );
 };
+
 export default Layout;
+
+
+
+

@@ -12,10 +12,11 @@ import { Loader2, TrendingUp } from "lucide-react";
 import Link from "next/link";
 import { searchStocks } from "@/lib/actions/finnhub.actions";
 import { useDebounce } from "@/hooks/useDebounce";
+import WatchlistButton from "@/components/ui/WatchlistButton";
 
 export default function SearchCommand({
   renderAs = "button",
-  label = "Ajouter une action",
+  label = "Ajouter un actif",
   initialStocks,
 }: SearchCommandProps) {
   const [open, setOpen] = useState(false);
@@ -64,6 +65,16 @@ export default function SearchCommand({
     setStocks(initialStocks);
   };
 
+  // Handle watchlist changes status change
+  const handleWatchlistChange = async (symbol: string, isAdded: boolean) => {
+    // Update current stocks
+    setStocks(
+      initialStocks?.map((stock) =>
+        stock.symbol === symbol ? { ...stock, isInWatchlist: isAdded } : stock
+      ) || []
+    );
+  };
+
   return (
     <>
       {renderAs === "text" ? (
@@ -84,7 +95,7 @@ export default function SearchCommand({
           <CommandInput
             value={searchTerm}
             onValueChange={setSearchTerm}
-            placeholder="Rechercher un actif..."
+            placeholder="Search stocks..."
             className="search-input"
           />
           {loading && <Loader2 className="search-loader" />}
@@ -92,18 +103,16 @@ export default function SearchCommand({
         <CommandList className="search-list">
           {loading ? (
             <CommandEmpty className="search-list-empty">
-              Chargement des actions...
+              Loading stocks...
             </CommandEmpty>
           ) : displayStocks?.length === 0 ? (
             <div className="search-list-indicator">
-              {isSearchMode
-                ? "Aucun résultat trouvé"
-                : "Aucune action disponible"}
+              {isSearchMode ? "No results found" : "No stocks available"}
             </div>
           ) : (
             <ul>
               <div className="search-count">
-                {isSearchMode ? "Résultats de recherche" : "Valeurs vedettes"}
+                {isSearchMode ? "Search results" : "Popular stocks"}
                 {` `}({displayStocks?.length || 0})
               </div>
               {displayStocks?.map((stock, i) => (
@@ -120,7 +129,12 @@ export default function SearchCommand({
                         {stock.symbol} | {stock.exchange} | {stock.type}
                       </div>
                     </div>
-                    {/*<Star />*/}
+                    <WatchlistButton
+                      symbol={stock.symbol}
+                      company={stock.name}
+                      isInWatchlist={stock.isInWatchlist}
+                      onWatchlistChange={handleWatchlistChange}
+                    />
                   </Link>
                 </li>
               ))}

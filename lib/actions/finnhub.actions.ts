@@ -3,6 +3,16 @@
 import { getDateRange, validateArticle, formatArticle } from "@/lib/utils";
 import { POPULAR_STOCK_SYMBOLS } from "@/lib/constants";
 import { cache } from "react";
+import { getAuthInstance } from "../better-auth/auth";
+
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
+import { getWatchlistSymbolsByEmail } from "./watchlist.actions";
+import {
+  formatPrice,
+  formatChangePercent,
+  formatMarketCapValue,
+} from "@/lib/utils";
 
 const FINNHUB_BASE_URL = "https://finnhub.io/api/v1";
 const NEXT_PUBLIC_FINNHUB_API_KEY =
@@ -202,3 +212,55 @@ export const searchStocks = cache(
     }
   }
 );
+
+// Fetch stock details by symbol
+export const getStocksDetails = cache(async (symbol: string) => {
+  const cleanSymbol = symbol.trim().toUpperCase();
+
+  try {
+    const [quote, profile, financials] = await Promise.all([
+      fetchJSON(
+        // Price data - no caching for accuracy
+        `${FINNHUB_BASE_URL}/quote?symbol=${cleanSymbol}&token=${NEXT_PUBLIC_FINNHUB_API_KEY}`
+      ),
+      fetchJSON(
+        // Company info - cache 1hr (rarely changes)
+        `${FINNHUB_BASE_URL}/stock/profile2?symbol=${cleanSymbol}&token=${NEXT_PUBLIC_FINNHUB_API_KEY}`,
+        3600
+      ),
+      fetchJSON(
+        // Financial metrics (P/E, etc.) - cache 30min
+        `${FINNHUB_BASE_URL}/stock/metric?symbol=${cleanSymbol}&metric=all&token=${NEXT_PUBLIC_FINNHUB_API_KEY}`,
+        1800
+      ),
+    ]);
+
+    // Type cast the responses
+    const quoteData = quote as QuoteData;
+    const profileData = profile as ProfileData;
+    const financialsData = financials as FinancialsData;
+
+    // Check if we got valid quote and profile data
+    if (!quoteData || quoteData.c === undefined || quoteData.c === 0)
+      throw new Error("Invalid stock data received from API");
+
+    const changePercent = quoteData.dp || 0;
+    const peRatio = financialsData?.metric?.peNormalizedAnnual || null;
+
+    return {
+      symbol: cleanSymbol,
+      company: profileData?.name,
+      currentPrice: quoteData.c,
+      changePercent,
+      priceFormatted: formatPrice(quoteData.c),
+      changeFormatted: formatChangePercent(changePercent),
+      peRatio: peRatio?.toFixed(1) || "—",
+      marketCapFormatted: formatMarketCapValue(
+        profileData?.marketCapitalization || 0
+      ),
+    };
+  } catch (error) {
+    console.error(`Error fetching details for ${cleanSymbol}:`, error);
+    throw new Error("Failed to fetch stock details");
+  }
+});

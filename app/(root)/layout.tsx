@@ -2,6 +2,10 @@ import Header from "@/components/ui/Header";
 import { getAuthInstance } from "@/lib/better-auth/auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import CookieConsentBanner from "@/components/CookieConsent";
+import Footer from "@/components/Footer";
+
+
 
 const Layout = async ({ children }: { children: React.ReactNode }) => {
   const auth = await getAuthInstance();
@@ -21,6 +25,8 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
       <Header user={user} />
 
       <div className="container py-10">{children}</div>
+      <Footer />
+      <CookieConsentBanner />
     </main>
   );
 };
